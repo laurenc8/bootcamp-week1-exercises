@@ -8,11 +8,15 @@ nouns, adjectives, and verbs */
 const noun1 = ______
 const verb1 = ______
 
-Change thses values to generate a different story
+Change these values to generate a different story
 */
 
-const story = `
-**replace this with your story using a template string**
-`
+const pluralNoun = 'dinosaurs'
+const adj = 'ambitious'
+const verb1 = 'swim'
+const verb2 = 'plug'
+const noun = 'snowman'
+
+const story = `My ${pluralNoun} are ${adj}. This is because they will ${verb1} if you come near them. It is best to ${verb2} them and give them your ${noun}.`
 
 console.log(story)
