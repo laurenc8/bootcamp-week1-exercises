@@ -9,8 +9,23 @@ const assert = require('assert')
  *    or the untruthiness using a single bang (!)
  */
 
+
 const hasFalsyValue = obj => {
-  
+  if (typeof(obj) === 'string') {
+    if (obj.length === 0) {
+      return true
+    } else {
+      return false
+    }
+  }
+  for (prop in obj) {
+    if (Object.prototype.hasOwnProperty.call(obj, prop)) {
+      if (!obj[prop] || hasFalsyValue(obj[prop])) {
+        return true
+      }
+    }
+  }
+  return false;
 };
 
 const falsyObj = {
