@@ -10,6 +10,7 @@ const assert = require('assert')
  */
 
 const hasFalsyValue = obj => {
+  
 };
 
 const falsyObj = {
