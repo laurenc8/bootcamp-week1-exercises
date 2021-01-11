@@ -1,9 +1,17 @@
-import React from 'react'
+import React from 'react';
+import SearchBar from './components/SearchBar';
+import TodoArray from './components/TodoArray';
+import TodoList from './components/TodoList';
+import AddTodoBar from './components/AddTodoBar';
+import { Title } from './styles';
 
 const App = () => (
   <div>
-    Beep boop hi there, I&apos;m your personal assistant hehe
+    <Title>Todo List</Title>
+    <SearchBar />
+    <TodoList />
+    <AddTodoBar todos={TodoArray()}/>
   </div>
 )
 
-export default App
+export default App;
