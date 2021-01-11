@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <div>
+    <a href="file:///Users/laurenc82/Downloads/HSA%20DEV/bootcamp-week1-exercises/2_PM/index.html">Home</a>
+    <a href="file:///Users/laurenc82/Downloads/HSA%20DEV/bootcamp-week1-exercises/2_PM/intro.html">Introduction</a>
+    <a href="file:///Users/laurenc82/Downloads/HSA%20DEV/bootcamp-week1-exercises/2_PM/bb.html">Busy Beaver Problem</a>
+    <a href="file:///Users/laurenc82/Downloads/HSA%20DEV/bootcamp-week1-exercises/2_PM/ackref.html">Acknowledgements and References</a>
+  </div>
+  <h2>Busy Beaver Problem</h2>
+  <center><img src="beaver.png" alt="Beaver!" width="300"/></center>
+  <h3>Statement</h3>
+  <p>Let \(\Gamma=\{0,1,\text{blank}\}\) be the tape alphabet for all TMs in this problem. Define the busy beaver function \(BB:\mathbb{N}\to\mathbb{N}\) as follows. For each value of \(k\), consider all \(k\)-state TMs that halt when started with a blank tape. Let \(BB(k)\) be the maximum number of \(1\)s that remain on the tape when the machine halts among all of these machines. We will show that \(BB\) is not a computable function.</p>
+  <h3>Solution</h3>
+  <p><b>Lemma.</b> <i>\(BB\) is a strictly increasing function.</i></p>
+  <p><i>Proof.</i> We prove that with an extra state, it is always possible to write at least one more \(1\) than is possible with a TM with fewer states. Consider a \(k\)-state TM \(N\) which outputs \(n\) \(1\)'s. Define a new \((k+1)\)-state TM \(N'\) as follows. Every transition in \(N\) to the accept state instead goes into a new state \(q\). In state \(q\), if the head currently contains a \(0\) or is blank, it overwrites with a \(1\) and accepts. If the head currently contains a \(1\), it moves to the right and remains in state \(q\). Since \(N\) halts, so does \(N'\). Moreover, machine \(N'\) leaves \(n+1\) \(1\)'s on the tape.</p>
+  <p>Hence, \(BB(k+1)\ge BB(k)+1\) and \(BB\) is strictly increasing. $$\tag*{$\blacksquare$}$$</p>
+  <p>We now continue to the main proof.</p>
+  <p><i>Proof.</i> Assume, for the sake of contradiction, that there exists a TM \(M\) which computes \(BB(k)\). Because TMs can convert between binary and unary, we can construct a TM \(U\), where given input \(k\), \(U\) outputs \(BB(k)\) in unary. Suppose \(U\) has \(n\) states. By the definition of the busy beaver function, the maximum number of \(1\)'s that \(U\) can output is \(BB(n)\). However, given input \(n+1\), \(U\) outputs \(BB(n+1)\) in unary, which is greater than \(BB(n)\) by the lemma. Thus, we have found a \(TM\) that has \(n\) states that outputs more than \(BB(n)\) \(1\)'s, a contradiction. Therefore, \(BB\) is not a computable function. $$\tag*{$\blacksquare$}$$</p>
+  <h3>Discussion</h3>
+  <p>Tibor Radó first defined the busy beaver game in 1962. Since then, there have been significant efforts to prove values of the busy beaver function. For very small values of \(k\), we can compute \(BB(k)\) by enumerating all possible \(k\)-state TMs: \(BB(0)=0, BB(1)=1, BB(2)=4\). It becomes increasingly difficult as \(k\) increases, but it can be shown that \(BB(3)=6\) and \(BB(4)=13\). \(BB(k)\) is currently undetermined for \(k\ge 5\) although a known lower bound for \(BB(5)\) is \(4098\). As we can see, the function begins to grow extremely quickly, and the busy beaver function can be shown to grow faster asymptotically than any computable function.</p>
+  <table class="center">
+    <tr>
+      <th>\(k\)</th>
+      <th>\(BB(k)\)</th>
+    </tr>
+    <tr>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>1</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>6</td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td>13</td>
+    </tr>
+    <tr>
+      <td>5</td>
+      <td>4098?</td>
+    </tr>
+  </table>
+</body>
+
+</html>
