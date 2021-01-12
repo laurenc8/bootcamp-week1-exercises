@@ -1,17 +1,20 @@
 import React from 'react';
 import { List } from '../styles';
-import TodoArray from './TodoArray';
 
-function TodoList() {
-  const todos = TodoArray();
-  const todoItems = todos.map((todo) =>
-    <li key={todo.id}>
-      <input type="checkbox" onChange=""/>
-      {todo.text}
-    </li>
-  );
+function TodoList(props) {
+  const todoItems = props.todos.map((todo) => {
+    function handleChange() {
+      props.deleteTodos(todo.id);
+    }
+    return (
+      <li key={todo.id}>
+        <input type="checkbox" onChange={handleChange}/>
+        {todo.text}
+      </li>
+    );
+  });
   return (
-    <div>
+    <div style={{maxWidth: "40em", margin: "auto", textAlign: "left"}}>
       <List>{todoItems}</List>
     </div>
   );

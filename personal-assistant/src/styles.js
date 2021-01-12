@@ -9,7 +9,11 @@ export const Search=styled.form `
 `
 
 export const List=styled.ul `
-  //text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+  margin: 20px;
+  list-style-type: none;
 `
 
 export const AddTodo=styled.form `

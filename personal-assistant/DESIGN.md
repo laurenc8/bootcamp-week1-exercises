@@ -4,10 +4,10 @@ Components Drafts:
 - search bar - form
 
 Components Hierarchy:
-- App
+- App, Todo Array
   - SearchBar
   - AddTodoBar
-    - TodoList
+  - TodoList
 
 Implementation Details:
 User will check the checkbox to delete a Todo from the array. The id of each Todo (https://www.npmjs.com/package/nanoid) will be used to uniquely identify it so that it can be deleted.
