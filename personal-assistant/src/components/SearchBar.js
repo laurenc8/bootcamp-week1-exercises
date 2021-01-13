@@ -1,12 +1,18 @@
 import React from 'react';
-import { Search } from '../styles';
+import { Search, SearchBox } from '../styles';
 
-function SearchBar() {
+function SearchBar(props) {
+  function handleChange(event) {
+    event.preventDefault();
+    props.searchTodos(event.target.value);
+  }
+  function handleSubmit(event) {
+    event.preventDefault();
+  }
   return (
     <div>
-      <Search>
-        <input type="text" name="item" />
-        <input type="submit" value="Search" />
+      <Search onChange={handleChange} onSubmit={handleSubmit}>
+        <SearchBox type="text" placeholder="search"/>
       </Search>
     </div>
   );

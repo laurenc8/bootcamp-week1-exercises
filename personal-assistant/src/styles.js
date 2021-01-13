@@ -4,8 +4,20 @@ export const Title=styled.h1`
   text-align: center;
 `
 
+export const Header=styled.h2`
+  text-align: center;
+  display: block;
+`
+
 export const Search=styled.form `
   text-align: center;
+`
+
+export const SearchBox=styled.input `
+  width: "40rem";
+  background: "#F2F1F9";
+  border: "none";
+  padding: "0.5rem";
 `
 
 export const List=styled.ul `
