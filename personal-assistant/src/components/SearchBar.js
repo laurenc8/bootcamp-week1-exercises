@@ -1,5 +1,5 @@
 import React from 'react';
-import { Search, SearchBox } from '../styles';
+import { Search, InputBox } from '../styles';
 
 function SearchBar(props) {
   function handleChange(event) {
@@ -12,7 +12,7 @@ function SearchBar(props) {
   return (
     <div>
       <Search onChange={handleChange} onSubmit={handleSubmit}>
-        <SearchBox type="text" placeholder="search"/>
+        <InputBox type="text" placeholder="search" style={{fontFamily: "Literata"}}/>
       </Search>
     </div>
   );

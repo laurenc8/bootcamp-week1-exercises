@@ -28,13 +28,13 @@ const App = () => {
   function searchTodos(item) {
     dispatch({type: 'search', term: item})
   }
-  console.log(todos);
+  // '#b6c5b8'
   return (
-    <div>
-      <Title>todos</Title>
+    <div style={{backgroundColor: '#b1caef', fontFamily: "Literata", height: '100vh', margin: 0}}>
+      <Title>To-dos</Title>
       <SearchBar searchTodos={searchTodos}/>
-      <Header>{todos.length} tasks remaining</Header>
-      <center>{todos.length === 0 ? <h2>All Done!</h2> : null}</center>
+      <Header>{todos.length} Tasks Remaining</Header>
+      <center>{todos.length === 0 ? <Header>All Done!</Header> : null}</center>
       <TodoList todos={todos.filter(todo => todo.text.toLowerCase().includes(term.toLowerCase()))} deleteTodos={deleteTodos}/>
       <AddTodoBar addTodos={addTodos}/>
     </div>

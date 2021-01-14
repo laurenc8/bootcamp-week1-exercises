@@ -1,23 +1,29 @@
 import styled from 'styled-components';
 
+// #f3efe8
 export const Title=styled.h1`
   text-align: center;
+  color: #ffffff;
+  margin: 0;
+  padding: 20px;
 `
 
 export const Header=styled.h2`
   text-align: center;
   display: block;
+  color: #ffffff;
 `
 
 export const Search=styled.form `
   text-align: center;
 `
 
-export const SearchBox=styled.input `
-  width: "40rem";
-  background: "#F2F1F9";
-  border: "none";
-  padding: "0.5rem";
+export const InputBox=styled.input `
+  font-size: 1em;
+  margin: 1em;
+  padding: 0.25em 0.5em;
+  border-radius: 3px;
+  background-color: #ffffff;
 `
 
 export const List=styled.ul `
@@ -30,4 +36,12 @@ export const List=styled.ul `
 
 export const AddTodo=styled.form `
   text-align: center;
+`
+
+export const AddButton=styled.input `
+  font-size: 1em;
+  margin: 1em;
+  padding: 0.25em 1em;
+  border-radius: 3px;
+  background-color: #ffffff;
 `

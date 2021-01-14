@@ -1,5 +1,5 @@
 import React from 'react';
-import { AddTodo } from '../styles';
+import { AddTodo, AddButton, InputBox } from '../styles';
 
 function AddTodoBar(props) {
   function handleSubmit(event) {
@@ -11,8 +11,8 @@ function AddTodoBar(props) {
   return (
     <div>
       <AddTodo onSubmit={handleSubmit}>
-        <input type="text" name="item" />
-        <input type="submit" value="add todo" />
+        <InputBox type="text" name="item" style={{fontFamily: "Literata"}}/>
+        <AddButton type="submit" value="add todo" style={{fontFamily: "Literata"}}/>
       </AddTodo>
     </div>
   );
