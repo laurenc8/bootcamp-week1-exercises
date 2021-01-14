@@ -1,6 +1,5 @@
 import styled from 'styled-components';
 
-// #f3efe8
 export const Title=styled.h1`
   text-align: center;
   color: #ffffff;
@@ -22,7 +21,7 @@ export const InputBox=styled.input `
   font-size: 1em;
   margin: 1em;
   padding: 0.25em 0.5em;
-  border-radius: 3px;
+  border-radius: 6px;
   background-color: #ffffff;
 `
 
@@ -42,6 +41,6 @@ export const AddButton=styled.input `
   font-size: 1em;
   margin: 1em;
   padding: 0.25em 1em;
-  border-radius: 3px;
+  border-radius: 6px;
   background-color: #ffffff;
 `

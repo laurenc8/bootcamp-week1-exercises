@@ -1,42 +1,25 @@
-import React, { useReducer } from 'react';
-import SearchBar from './components/SearchBar';
-import TodoList from './components/TodoList';
-import AddTodoBar from './components/AddTodoBar';
-import { Title, Header } from './styles';
-import { nanoid } from 'nanoid';
+import React from 'react';
+import { Route, Switch, Redirect } from 'react-router-dom';
+import { Navbar, Nav } from 'react-bootstrap';
+import GreetingPage from './GreetingPage';
+import TodoPage from './TodoPage';
+import './Navbar.css';
 
 const App = () => {
-  function reducer(state, action) {
-    switch (action.type) {
-      case 'add':
-        return {todos: state.todos.concat(action.item), term: state.term};
-      case 'delete':
-        return {todos: state.todos.filter(todo => todo.id !== action.id), term: state.term};
-      case 'search':
-        return {todos: state.todos, term: action.term};
-      default:
-        return state;
-    }
-  }
-  const [{todos, term}, dispatch] = useReducer(reducer, {todos: [], term: ""});
-  function addTodos(item) {
-    dispatch({type: 'add', item: {id: nanoid(), text: item}});
-  }
-  function deleteTodos(id) {
-    dispatch({type: 'delete', id: id});
-  }
-  function searchTodos(item) {
-    dispatch({type: 'search', term: item})
-  }
-  // '#b6c5b8'
   return (
-    <div style={{backgroundColor: '#b1caef', fontFamily: "Literata", height: '100vh', margin: 0}}>
-      <Title>To-dos</Title>
-      <SearchBar searchTodos={searchTodos}/>
-      <Header>{todos.length} Tasks Remaining</Header>
-      <center>{todos.length === 0 ? <Header>All Done!</Header> : null}</center>
-      <TodoList todos={todos.filter(todo => todo.text.toLowerCase().includes(term.toLowerCase()))} deleteTodos={deleteTodos}/>
-      <AddTodoBar addTodos={addTodos}/>
+    <div>
+      <Navbar expand="lg" style={{fontFamily: 'Literata'}}>
+        <Navbar.Brand>My Personal Assistant</Navbar.Brand>
+        <Nav>
+          <Nav.Link href="/todo">To-dos</Nav.Link>
+          <Nav.Link href="/">Home</Nav.Link>
+        </Nav>
+      </Navbar>
+      <Switch>
+        <Route exact path="/" component={GreetingPage} />
+        <Route exact path="/todo" component={TodoPage} />
+        <Route component={() => <Redirect to="/" />} />
+      </Switch>
     </div>
   );
 }

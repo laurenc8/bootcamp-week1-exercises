@@ -1,5 +1,13 @@
-import React from 'react'
-import ReactDOM from 'react-dom'
-import App from './App'
+import React from 'react';
+import ReactDOM from 'react-dom';
+import App from './App';
+import { BrowserRouter as Router } from 'react-router-dom';
 
-ReactDOM.render(<App />, document.getElementById('root'))
+ReactDOM.render(
+  <React.StrictMode>
+    <Router basename='/personal-assistant'>
+      <App />
+    </Router>
+  </React.StrictMode>,
+  document.getElementById('root')
+);
